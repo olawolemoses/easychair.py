@@ -1,0 +1,85 @@
+{% load static %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <ol class="breadcrumb pull-right">
+                        <!-- <li><a href="#">Minton</a></li>
+                        <li><a href="#">Extras</a></li> -->
+                        <li class="active">Profile</li>
+                    </ol>
+                    <h4 class="page-title">Profile</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+
+                    {% include './membership.html' %}
+
+                    {% include './skills.html' %}
+
+
+
+
+
+            </div> <!-- end col -->
+
+
+            <div class="col-md-8 col-lg-9">
+                <div class="">
+                    <div class="">
+                        <ul class="nav nav-tabs navtab-custom">
+                          <!--
+                            <li class="">
+                                <a href="#home" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-user"></i></span>
+                                    <span class="hidden-xs">ABOUT ME</span>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="#profile" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-photo"></i></span>
+                                    <span class="hidden-xs">GALLERY</span>
+                                </a>
+                            </li>
+                            -->
+                            <li class="active">
+                                <a href="#settings" data-toggle="tab" aria-expanded="true">
+                                    <span class="visible-xs"><i class="fa fa-cog"></i></span>
+                                    <span class="hidden-xs">SETTINGS</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                          <!--
+                            {% include './_home.html' %}
+
+                            {% include './_gallery.html' %}
+                          -->
+                            {% include './_settings.html' %}
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+
+
+
+    </div>
+    <!-- end container -->
+
+</div>
+<!-- end content -->

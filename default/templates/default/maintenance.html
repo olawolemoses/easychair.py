@@ -1,0 +1,56 @@
+{% extends "default/index2.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+      <!-- Start content -->
+      <div class="content">
+          <div class="container">
+
+              <!-- Page-Title -->
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="page-title-box">
+                          <ol class="breadcrumb pull-right">
+                            <li><a href="{% url 'default:index' %}">Home</a></li>
+                              <li class="active">Reviews</li>
+                          </ol>
+                          <h4 class="page-title">Reviews</h4>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="text-center">
+                        <div class="text-center">
+                            <a href="{% url 'default:index' %}" class="logo-lg">
+                              <img src="{% static 'images/icons/logo.png' %}" width="48" />
+                               <span>CuChair</span> </a>
+                        </div>
+
+                          <h2 class="home-text text-uppercase">feature is Under Construction</h2>
+                          <h4>Please check back in sometime.</h4>
+
+                          <!--
+                          <button type="button" class="btn btn-success waves-effect waves-light m-t-10">Email us your question</button>
+                          <button type="button" class="btn btn-primary waves-effect waves-light m-t-10">Send us a tweet</button>
+                          -->
+
+                      </div>
+                  </div><!-- end col -->
+              </div>
+
+
+
+
+
+          </div>
+          <!-- end container -->
+
+      </div>
+      <!-- end content -->
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "default/index2.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <ol class="breadcrumb pull-right">
+                            <li><a href="#">{{ user.type }}</a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                        <h4 class="page-title">Welcome ! {{ user.first_name }}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-box">
+                        <div class="subcontent">
+                          <div class="card-box">
+                                  <h3>Submission Information</h3>
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                          {% if submission is not None %}
+                                            <tr>
+                                                <th>Submission ID</th>
+                                                <td>{{ submission.id }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Title</th>
+                                                <td>{{ submission.title }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Submitted to</th>
+                                                <td>
+                                                  <a href="{% url 'default:conference_info' conf_id=submission.conference.id %}">
+                                                    {{ submission.conference.acronym }}
+                                                  </a>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Paper</th>
+                                                <td>
+                                                  <a href="{{ submission.paper_url }}">
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                  </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Author keywords:</th>
+                                                <td>{{ submission.keywords }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Abstract:</th>
+                                                <td>
+
+                                                  {{ submission.abstract }}
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Status</th>
+                                                <td>
+
+                                                  {{ submission.status }}
+
+                                                </td>
+                                            </tr>
+                                            {% endif %}
+                                          </tbody>
+                                      </table>
+                                  </div>
+                            </div>
+
+                          <div class="card-box">
+                            <h3>Authors</h3>
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead>
+                                    <tr>
+                                        <th>firstname </th>
+                                          <th>lastname </th>
+                                        <th> email </th>
+                                        <th>organisation</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for author in authors %}
+                                          <tr>
+                                              <td>{{ author.fname }}</td>
+                                              <td>{{ author.lname }}</td>
+                                              <td>{{ author.email }}</td>
+                                              <td>{{ author.organisation }}</td>
+                                          </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                      </div>
+
+                      <div class="card-box">
+                        <h3>Reviews</h3>
+                        <div class="table-responsive">
+                            <!-- {# <table class="table">
+                                <thead>
+                                  <tr>
+                                      <th>firstname </th>
+                                        <th>lastname </th>
+                                      <th> email </th>
+                                      <th>organisation</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for author in authors %}
+                                        <tr>
+                                            <td>{{ author.fname }}</td>
+                                            <td>{{ author.lname }}</td>
+                                            <td>{{ author.email }}</td>
+                                            <td>{{ author.organisation }}</td>
+                                        </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table>#} -->
+                          No review submitted yet
+                      </div>
+                    </div>
+                    
+                    </div>
+                </div>
+                <!-- end col -8 -->
+            </div>
+            <!-- end row -->
+
+
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end content -->
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    $("#collectionlist").click(function(){
+    	if( confirm("You are about to register in {{ conference.acronym }}") ){
+    		conf_id = $(this).attr( 'data-conf-id' )
+    		console.log( conf_id )
+    		$.ajax({
+          'type': 'POST',
+    			'url' : "{% url 'default:conference_register' %}",
+        		data: {
+            		conf_id: conf_id,
+            		csrfmiddlewaretoken: "{{csrf_token}}",
+        		},
+    			success: function(result) {
+    				console.log(result);
+            if (result.status == "Success")
+              location.href = result.url;
+    			},
+    			error: function(e){
+    				console.log( e )
+    			}
+    		});
+    	}
+    	return false;
+    });
+
+  })
+</script>
+{% endblock %}

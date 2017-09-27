@@ -1,0 +1,20 @@
+{% extends 'default/_base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper-page">
+
+    <div class="text-center">
+        <a href="{% url 'default:index' %}" class="logo-lg">
+          <img src="{% static 'images/icons/logo.png' %}" width="48" />
+           <span>CuChair</span> </a>
+    </div>
+
+    <div class="text-center">
+      <h1>Welcome! {{ user.first_name }}</h1>
+
+      <p>You have been successfully registered on the CuChair Platform</p>
+
+      <p><a href="{% url 'default:index' %}">Please click here to continue</a></p>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,76 @@
+{% load static %}
+<div class="tab-pane active" id="settings">
+    <form role="form" action="{% url 'default:profile_update' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="FullName">First Name</label>
+            <input type="text" name="first_name" value="{{ user.first_name }}" id="FullName" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="FullName">Last Name</label>
+            <input type="text" name="last_name" value="{{ user.last_name }}"  id="FullName" value="{{ user.first_name}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" name="email" value="{{ user.email }}" id="Email" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="Username">Username</label>
+            <input type="text"name="username" value="{{ user.username }}"  readonly='readonly' id="Username" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" name="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="RePassword">Re-Password</label>
+            <input type="password" name="confirm_password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="AboutMe">Avatar</label>
+            {% with photo_url=user.photoURL %}
+            <img src="{{ photo_url }}" class="rounded-circle img-thumbnail" alt="profile-image">
+            {% endwith %}
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Upload Picture</label>
+            <div class="col-10">
+                <input class="form-control" type="file" name="picture">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" name="location" value="{{ user.location }}"  id="location" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Skype</label>
+            <input type="text" name="skype" value="{{ user.skype }}"  id="skype" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Facebook</label>
+            <input type="text" name="facebook" value="{{ user.facebook }}"  id="facebook" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Twitter</label>
+            <input type="text" name="twitter" value="{{ user.twitter }}"  id="twitter" class="form-control">
+        </div>
+
+
+        <div class="form-group">
+            <label for="AboutMe">Research Areas</label>
+            <textarea name="interests" tyle="height: 125px" id="AboutMe" class="form-control">{{ user.interests }}</textarea>
+        </div>
+        <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+    </form>
+</div>

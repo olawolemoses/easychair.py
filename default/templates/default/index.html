@@ -1,0 +1,16 @@
+{% include 'default/includes/cu-head.html' %}
+
+{% load static %}
+
+{% if user.type == 'author'  %}
+{% include 'default/dashboard/author.html'  with con=con %}
+
+{% elif user.type == 'reviewer' %}
+{% include 'default/dashboard/reviewer.html' %}
+
+{% elif user.type == 'chair' %}
+{% include 'default/dashboard/chair.html' %}
+
+{% endif %}
+
+{% include 'default/includes/cu-footer.html' with footer_type="default" %}

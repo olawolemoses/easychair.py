@@ -1,0 +1,11 @@
+
+{% if user.type == 'author'  %}
+{% include './_author_sidebar.html' %}
+
+{% elif user.type == 'reviewer' %}
+{% include './_author_sidebar.html' %}
+
+{% elif user.type == 'chair' %}
+{% include './_author_sidebar.html' %}
+
+{% endif %}

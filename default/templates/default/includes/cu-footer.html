@@ -1,0 +1,25 @@
+{% load static %}
+
+<footer class="footer text-right">
+    2017 © CuChair.
+</footer>
+
+</div>
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->
+
+
+{% include 'default/includes/rightbar.html' %}
+
+
+
+{% if footer_type %}
+    {% with template_name=footer_type|stringformat:"s"|add:".html" %}
+        {% include "default/includes/footer-"|add:template_name %}
+    {% endwith %}
+{% else %}
+
+    {% include 'default/includes/footer.html' %}
+
+{% endif %}

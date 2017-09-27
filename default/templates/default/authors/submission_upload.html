@@ -1,0 +1,280 @@
+{% extends "default/index2.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <ol class="breadcrumb pull-right">
+                            <li><a href="#">{{ user.type }}</a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                        <h4 class="page-title">Welcome ! {{ user.first_name }}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-box">
+                        <h4 class="text-dark  header-title m-t-0">Submissions</h4>
+                        <p class="text-muted m-b-25 font-13">
+                            Follow the instructions, step by step, and then use the "Submit" button at the bottom of the form.
+                            The required fields are marked by (*).
+                        </p>
+
+                        <form class="form-horizontal m-t-20" enctype="multipart/form-data" action="{% url 'default:author_submissions_upload' conf_id=conference.id %}" method="POST">
+
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            {{ form2.non_field_errors }}
+                            {{ form3.non_field_errors }}
+
+
+
+                            <h3>Author Information</h3>
+                            <p>
+                              For each of the authors please fill out the form below. Some items on the form are explained here:
+                            </p>
+
+                            <ul>
+                              <li><b>Email address </b>will only be used for communication with the authors. It
+                              will not appear in public Web pages of this
+                              conference. The email address can be omitted for authors
+                              who are not corresponding. These authors will also have no
+                              access to the submission page.</li>
+
+                              <li><b>Web page </b>can be used on the conference Web pages, for example, for
+                              making the program. It should be a Web page of the author,
+                              not the Web page of her or his organization.</li>
+
+                              <li>Each author marked as a <b>corresponding author </b>will receive email messages from the system about this
+                              submission. There must be at least one corresponding
+                              author.
+                            </li>
+                          </ul>
+
+                          <hr />
+
+                          <div id='contactsList' data-bind="foreach: contacts">
+
+                              <div class="card-box">
+                                <div class="form-group">
+                                    {{ form2.title.errors }}
+                                    <div class="col-xs-12">
+                                        {{ form2.title }}
+                                        <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form2.fname.errors }}
+                                    <div class="col-xs-12">
+                                        {{ form2.fname }}
+                                        <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form2.lname.errors }}
+                                    <div class="col-xs-12">
+                                        {{ form2.lname }}
+                                        <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form2.email.errors }}
+                                    <div class="col-xs-12">
+                                        {{ form2.email }}
+                                        <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form2.organisation.errors }}
+                                    <div class="col-xs-12">
+                                        {{ form2.organisation }}
+                                        <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form2.speaker.errors }}
+                                    <div class="col-xs-12">
+                                      <div class="checkbox checkbox-primary">
+                                          {{ form2.speaker }}
+                                          <label for="speaker">
+                                          Speaker?
+                                          </label>
+                                      </div>
+                                    </div>
+                                </div>
+
+                                    <div><i class="glyphicon glyphicon-remove-sign"></i><a style="color:red" href='#' data-bind='click: $root.removeContact'>
+
+                                      Remove</a></div>
+                              </div>
+
+                          </div>
+
+                          <button class="btn btn-info add-item" data-bind='click: addContact'>Add another author</button>
+
+                            <hr />
+
+                            <h3>Title and Abstract</h3>
+                            <p>
+                              The title and the abstract should be entered as plain text, they should not contain HTML elements.
+                            </p>
+
+                            <div class="form-group">
+                                {{ form3.paper_title.errors }}
+                                <div class="col-xs-12">
+                                    {{ form3.paper_title }}
+                                    <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ form3.abstract.errors }}
+                                <div class="col-xs-12">
+                                    {{ form3.abstract }}
+                                    <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ form3.keywords.errors }}
+                                <div class="col-xs-12">
+                                    {{ form3.keywords }}
+                                    <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <p>
+                              <b>Paper.</b> Upload your paper. The paper must be in PDF format (file extension <span style="color:red">.pdf</span>)
+                            </p>
+                            <div class="form-group">
+                                {{ form3.upload.errors }}
+                                <div class="col-xs-12">
+                                    {{ form3.upload }}
+                                    <i class="md md-vpn-key form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                              <hr />
+                            <h3>Correspondence Information</h3>
+                            <div class="form-group">
+                                {{ form.address1.errors }}
+                                <div class="col-xs-12">
+                                    {{ form.address1 }}
+                                    <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                              {{ form.address2.errors }}
+                                <div class="col-xs-12">
+                                    {{ form.address2 }}
+                                    <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                              {{ form.city.errors }}
+                                <div class="col-xs-12">
+                                    {{ form.city }}
+                                    <i class="md md-email form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                              {{ form.state.errors }}
+                                <div class="col-xs-12">
+                                    {{ form.state }}
+                                    <i class="md md-email form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.country.errors }}
+                                <div class="col-xs-12">
+                                    {{ form.country }}
+                                    <i class="md md-vpn-key form-control-feedback l-h-34"></i>
+                                </div>
+                            </div>
+
+
+                        <div class="form-group text-left m-t-20">
+                          <h3>Ready?</h3>
+
+                          <p>If you filled out the form, press the 'Submit' button below.<b> Do not press the button twice: uploading may take time!</b></p>
+
+                            <div class="col-xs-12">
+                                <button class="btn btn-primary btn-custom waves-effect waves-light w-md" type="submit">Upload now</button>
+                            </div>
+                        </div>
+
+                      </form>
+                    </div>
+                </div>
+                <!-- end col -8 -->
+            </div>
+            <!-- end row -->
+
+
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end content -->
+
+<script type='text/javascript' src='{% static 'js/knockout-3.4.2.js' %}'></script>
+<script>
+var initialData = [
+    { title: "", firstName: "", lastName: "", email: "", organisation: ""}
+  ];
+
+var ContactsModel = function(contacts) {
+    var self = this;
+    self.contacts = ko.observableArray(ko.utils.arrayMap(contacts, function(contact) {
+        return { title: contact.title,
+                  firstName: contact.firstName,
+                  lastName: contact.lastName,
+                  email: contact.email,
+                  organisation: contact.organisation
+              };
+    }));
+
+    self.addContact = function() {
+        self.contacts.push({
+            title:"",
+            firstName: "",
+            lastName: "",
+            email: "",
+            organisation: ""
+        });
+    };
+
+    self.removeContact = function(contact) {
+        self.contacts.remove(contact);
+    };
+
+    self.save = function() {
+        self.lastSavedJson(JSON.stringify(ko.toJS(self.contacts), null, 2));
+    };
+
+    self.lastSavedJson = ko.observable("")
+};
+
+ko.applyBindings(new ContactsModel(initialData));
+</script>
+{% endblock %}

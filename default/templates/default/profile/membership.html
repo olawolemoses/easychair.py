@@ -1,0 +1,44 @@
+{% load static %}
+<div class="text-center card-box">
+  <div class="member-card">
+    <div class="thumb-xl member-thumb m-b-10 center-block">
+      {% with photo_url=user.photoURL %}
+      <img src="{{ photo_url }}" class="rounded-circle img-thumbnail" alt="profile-image">
+      {% endwith %}
+    </div>
+
+    <div class="">
+        <h4 class="m-b-5">{{ user.first_name }} {{ user.last_name }}</h4>
+        <p class="text-muted">@{{ user.username }}</p>
+    </div>
+
+    <!--
+    <button type="button" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Follow</button>
+    <button type="button" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light">Message</button>-->
+
+
+    <div class="text-left m-t-40">
+        <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">{{ user.first_name }} {{ user.last_name }}</span></p>
+
+        <!--
+        <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">(123) 123 1234</span></p>  -->
+
+        <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">{{ user.email }}</span></p>
+
+        <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">{{ user.location }}</span></p>
+    </div>
+
+    <ul class="social-links list-inline m-t-30">
+        <li>
+            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li>
+            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li>
+            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a>
+        </li>
+    </ul>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{% extends 'default/_base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="wrapper-page">
+
+    <div class="text-center">
+        <a href="{% url 'default:index' %}" class="logo-lg">
+          <img src="{% static 'images/icons/logo.png' %}" width="48" />
+           <span>CuChair</span> </a>
+    </div>
+
+    <div class="text-center">
+      <h1>Logged out! </h1>
+      <div class="col-lg-12 text-center">
+              <p class="section-subheading text-muted">
+                Your are logged out! <a href="{% url 'login' %}">Click here to login again.</a></hp>
+      </div>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,95 @@
+{% extends "default/index2.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <ol class="breadcrumb pull-right">
+                            <li><a href="#">{{ user.type }}</a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                        <h4 class="page-title">Welcome ! {{ user.first_name }}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-box">
+                        <div class="subcontent">
+                          <h3>Registration! Complete</h3>
+                          <p>You have successfully registered</p>
+                          <p> Kindly find below conference information</p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                  {% if conference is not None %}
+
+                                    <tr>
+                                        <th>Acronym of the event</th>
+                                        <td>{{ conference.acronym }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Name of the event</th>
+                                        <td>{{ conference.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Web page</th>
+                                        <td>
+                                          <a href="{{ conference.webpage }}" target='_blank'>
+                                          {{ conference.webpage }}
+                                        </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact email:</th>
+                                        <td>
+                                            <a href="mailto:{{ conference.contact_email }}">
+                                              {{ conference.contact_email }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Submission Page:</th>
+                                        <td>
+                                          <a href="http://{{ request.META.HTTP_HOST }}{% url 'default:author_submissions_upload' conf_id=conference.id %}">
+                                            http://{{ request.META.HTTP_HOST }}{% url 'default:author_submissions_upload' conf_id=conference.id  %}
+                                          </a>
+                                      </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <td>
+                                          <div class="text-left">
+                                            <h3>Registered</h3>
+                                          </div>
+                                      </td>
+                                    </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -8 -->
+            </div>
+            <!-- end row -->
+
+
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end content -->
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "default/index2.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+      <!-- Start content -->
+      <div class="content">
+          <div class="container">
+
+              <!-- Page-Title -->
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="page-title-box">
+                          <ol class="breadcrumb pull-right">
+                            <li><a href="{% url 'default:index' %}">Home</a></li>
+                              <li class="active">Faq</li>
+                          </ol>
+                          <h4 class="page-title">FAQ</h4>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="text-center">
+                          <h3 class="font-600">Support/FAQ</h3>
+                          <p class="text-muted">This article contains answers to Frequently Asked Questions (FAQ).</p>
+                      </div>
+                  </div><!-- end col -->
+              </div>
+
+
+              <div class="row m-t-40">
+                  <div class="col-lg-9 center-page">
+                      <div>
+                          <div class="question-q-box">Q.</div>
+                          <h4 class="question">What is CuChair?</h4>
+                          <p class="answer">CuChair is the Covenant University hosted conference management service sponsored by the Covenant University Center for Research Innovation and Development (CUCRID).
+                            CuChair is built using Open source including Python, Django, Nginx and PostgreSQL Server. All conferences' data are currently resident on the CU Data Center.
+                            CuChair's functionalities are fully accessible through web based interfaces.</p>
+                      </div>
+
+                      <div>
+                          <div class="question-q-box">Q.</div>
+                          <h4 class="question">I have an CuChair account but cannot access my account? </h4>
+                          <p class="answer">
+                            What happens is the following. You account is associated with one or more email addresses.
+                            When another person (e.g., a programme chair or your co-author) enters your data in CuChair
+                            she or he may specify as your email address an address A not associated with your account.
+                            If this happens, CuChair does not understand that A is also one of your email addresses and creates a new user for that address.
+                            Please read the article on email addresses for more details.
+                            To solve the problem you can do any of the following:
+                            Add A as your alternative email address (recommended);
+                            Ask the chair or the co-author to update your email address.
+                          </p>
+                      </div>
+
+                      <div>
+                          <div class="question-q-box">Q.</div>
+                          <h4 class="question">How can I submit a new paper?</h4>
+                          <ol class="answer">
+                            	<li class="answer">First of all, you should <em>log in to the right conference</em>. The conference acronym is always displayed in the upper left corner of the screen, followed by your current role for this conference.&nbsp;For example, if the acronym of the conference&nbsp;is LPAR 30, and you are logged in as an author, then you will see LPAR 30 (author) in that corner. It is not unusual that conference organizers put a wrong link to the conference CuChair page on&nbsp;their conference Web page. If you follow such a link and the conference acronym is not there, you should inform the organizers.</li>
+                            	<li class="answer">If you follow a submission link from the conference Web site and see&nbsp;"Submission for this conference is closed", the conference does not accept new submissions. If this happens and you believe this is a mistake,&nbsp;you should contact the conference organizers.</li>
+                            	<li class="answer">If you successfully logged in to your conference but the role displayed is different from author, you should follow the menu tabs &lt;conference acronym&gt; -&gt; Change role. It will show you all the roles you have for this conference. If author is not among these roles, then the conference does not accept new submissions. Again, if this happens you should contact the conference organizers.</li>
+                            	<li class="answer">Suppose you are logged in as an author of the right conference. To submit a new paper you should click on the menu tab "New Submission". If there is no such menu tab, then the conference does not accept new submissions.</li>
+                            	<li class="answer">If you see the "New Submission" tab, click on it and follow the instructions. You will have to fill out information about your submission and possibly upload some files. The submission form and file uploads are configured by the conference <a class="def" href="" onclick="return Help.definition(1)">chairs</a>.&nbsp;</li>
+                            	<li class="answer">If you fill out the form correctly (so that CuChair&nbsp;displays no error messages), pressed the "Submit" button and nothing is happening for a long time, the problem is most likely a broken or a very slow Internet connection. In this case all you can do is to try again.</li>
+                          </ol>
+                      </div>
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success waves-effect waves-light m-t-10">Email us your question</button>
+                            <!-- <button type="button" class="btn btn-primary waves-effect waves-light m-t-10">Send us a ticket</button> -->
+                        </div>
+                  </div>
+
+              </div>
+
+
+          </div>
+          <!-- end container -->
+
+      </div>
+      <!-- end content -->
+{% endblock %}

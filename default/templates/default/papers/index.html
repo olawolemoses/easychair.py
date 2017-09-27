@@ -1,0 +1,206 @@
+
+{% load static %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+<!-- Start content -->
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <ol class="breadcrumb pull-right">
+                        <!-- <li><a href="#">Minton</a></li>
+                        <li><a href="#">Extras</a></li> -->
+                        <li class="active">Profile</li>
+                    </ol>
+                    <h4 class="page-title">Profile</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+
+                    Hello
+
+
+
+
+
+            </div> <!-- end col -->
+
+
+            <div class="col-md-8 col-lg-9">
+                <div class="">
+                    <div class="">
+                        <ul class="nav nav-tabs navtab-custom">
+                          <!--
+                            <li class="">
+                                <a href="#home" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-user"></i></span>
+                                    <span class="hidden-xs">ABOUT ME</span>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="#profile" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-photo"></i></span>
+                                    <span class="hidden-xs">GALLERY</span>
+                                </a>
+                            </li>
+                            -->
+                            <li class="active">
+                                <a href="#settings" data-toggle="tab" aria-expanded="true">
+                                    <span class="visible-xs"><i class="fa fa-cog"></i></span>
+                                    <span class="hidden-xs">SETTINGS</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+
+                            <div class="row">
+                              <div class="col-md-8 form-group">
+                                <form class="form-horizontal m-t-20" action="{% url 'default:papers_upload' %}" method="POST">
+
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+
+                                    <h3>Correspondence Information</h3>
+                                    <div class="form-group">
+                                        {{ form.address1.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form.address1 }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                      {{ form.address2.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form.address2 }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                      {{ form.city.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form.city }}
+                                            <i class="md md-email form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form.country.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form.country }}
+                                            <i class="md md-vpn-key form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <h3>Authors registration</h3>
+
+                                    <div class="form-group">
+                                        {{ form2.fname.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form2.fname }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form2.lname.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form2.lname }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form2.email.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form2.email }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form2.country.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form2.country }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form2.organisation.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form2.organisation }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <a id="author_link" href="#">Click here to add Authors</a>
+
+
+                                    <h3>Title and Abstract</h3>
+
+                                    <div class="form-group">
+                                        {{ form3.title.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form3.title }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form3.abstract.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form3.abstract }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form3.keywords.errors }}
+                                        <div class="col-xs-12">
+                                            {{ form3.keywords }}
+                                            <i class="md md-account-circle form-control-feedback l-h-34"></i>
+                                        </div>
+                                    </div>
+
+
+
+
+                                <div class="form-group text-right m-t-20">
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-primary btn-custom waves-effect waves-light w-md" type="submit">Register</button>
+                                    </div>
+                                </div>
+
+                              </form>
+
+                              </div>
+
+                            </div>
+
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+
+
+
+    </div>
+    <!-- end container -->
+
+</div>
+<!-- end content -->

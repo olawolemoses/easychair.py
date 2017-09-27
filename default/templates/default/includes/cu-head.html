@@ -1,0 +1,20 @@
+{% include 'default/includes/head.html' %}
+
+{% load static %}
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+          {% if top_bar_type %}
+              {% with template_name=top_bar_type|stringformat:"s"|add:".html" %}
+                  {% include "default/includes/top_bar_"|add:template_name %}
+              {% endwith %}
+          {% else %}
+
+              {% include 'default/includes/top_bar.html' %}
+          {% endif %}
+
+          {% if nosidebar is not True %}
+            {% include 'default/includes/sidebar.html' %}
+          {% endif %}

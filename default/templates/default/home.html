@@ -1,0 +1,116 @@
+{% include 'default/includes/cu-head.html' with nosidebar=True top_bar_type="home" %}
+{% load static  %}
+<div class="content-page" style="background:url('/static/images/icons/bg-login.jpg') no-repeat; background-size:100%; margin-left:0;">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+
+
+                        <div class="row">
+                            <div class="col-lg-9 center-page">
+
+
+                                <!--Pricing Column-->
+                                <article class="pricing-column col-lg-12">
+                                   <div class="inner-box card-box">
+                                     <div class="text-center">
+
+
+
+                                         <!--
+                                         <button type="button" class="btn btn-success waves-effect waves-light m-t-10">Email us your question</button>
+                                         <button type="button" class="btn btn-primary waves-effect waves-light m-t-10">Send us a tweet</button>
+                                         -->
+
+                                     </div>
+
+                                        <div class="home-text" style="margin:0 30px">
+                                          <div class="text-left">
+                                              <a href="{% url 'default:index' %}" class="logo-lg">
+                                                <!-- <img src="{% static 'images/icons/logo.png' %}" width="48" /> -->
+                                                 <span>What is CuChair?</span> </a>
+                                          </div>
+                                              <p class="text-muted font-20 m-b-0" style="font-size: 20px">
+                                                CuChair is the Covenant University hosted conference management service sponsored by the Covenant University Center for Research Innovation and Development (CUCRID).
+                                                  CuChair's functionalities are fully accessible through web based interfaces.
+                                              </p>
+
+
+
+                                              <div class="text-left" style="margin:30px 0">
+                                                  <a href="{% url 'default:register' %}" class="btn btn-danger btn-bordred btn-rounded waves-effect waves-light">Sign up now</a>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!--Pricing Column-->
+                                <article class="pricing-column col-lg-4 col-md-4">
+                                   <div class="inner-box card-box">
+                                        <div class="plan-header text-center">
+                                            <h3>Conference Chairs</h3>
+                                        </div>
+                                        <ul class="plan-stats list-unstyled text-center">
+                                            <li><i class="ti-cloud text-success"></i> <a href="#">Create an account</a></li>
+                                            <li><i class="ti-briefcase text-success"></i> <a href="#">Create a Conference</a></li>
+                                            <li><i class="ti-briefcase text-success"></i> <a href="#">Call for papers</a></li>
+                                        </ul>
+
+                                        <div class="text-center">
+                                            <a href="{% url 'default:register' %}" class="btn btn-danger btn-bordred btn-rounded waves-effect waves-light">Sign up</a>
+                                        </div>
+                                    </div>
+                                </article>
+
+
+                                    <!--Pricing Column-->
+                                    <article class="pricing-column col-lg-4 col-md-4">
+                                       <div class="inner-box card-box">
+                                            <div class="plan-header text-center">
+                                                <h3>Reviewers</h3>
+                                            </div>
+                                            <ul class="plan-stats list-unstyled text-center">
+                                                <li><i class="ti-cloud text-success"></i> Join a network of peer reviewers</li>
+                                                <li><i class="ti-briefcase text-success"></i> Review submission </li>
+                                                <li><i class="ti-briefcase text-success"></i> Semantic Assignments System</li>
+                                            </ul>
+
+                                            <div class="text-center">
+                                                <a href="{% url 'default:register' %}" class="btn btn-danger btn-bordred btn-rounded waves-effect waves-light">Sign up</a>
+                                            </div>
+                                        </div>
+                                    </article>
+
+
+                                    <!--Pricing Column-->
+                                    <article class="pricing-column col-lg-4 col-md-4">
+                                       <div class="inner-box card-box">
+                                            <div class="plan-header text-center">
+                                                <h3>Authors</h3>
+                                            </div>
+                                            <ul class="plan-stats list-unstyled text-center">
+                                              <li><i class="ti-briefcase text-success"></i> Search for a Conference</li>
+                                                <li><i class="ti-cloud text-success"></i> Register for a Conference</li>
+                                                <li><i class="ti-briefcase text-success"></i> Submit your paper</li>
+                                            </ul>
+
+                                            <div class="text-center">
+                                                <a href="{% url 'default:register' %}" class="btn btn-danger btn-bordred btn-rounded waves-effect waves-light">Sign up</a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+                    </div>
+                    <!-- end container -->
+
+                </div>
+                <!-- end content -->
+
+
+{% include 'default/includes/cu-footer-home.html' with footer_type="default" %}

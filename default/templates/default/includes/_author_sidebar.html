@@ -1,0 +1,75 @@
+{% load static %}
+
+<!-- ========== Left Sidebar Start ========== -->
+<div class="left side-menu">
+    <div class="sidebar-inner slimscrollleft">
+
+        <div id="sidebar-menu">
+            <ul>
+                <li class="menu-title">Main</li>
+
+                <li>
+                    <a href="{% url 'default:index' %}" class="waves-effect waves-primary"><i
+                            class="md md-dashboard"></i><span> Dashboard </span></a>
+                </li>
+
+
+                <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect waves-primary">
+                            <i class="md md-palette"></i> <span> Conferences </span>
+                         <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'default:author_conferences' %}">my conferences</a></li>
+                        </ul>
+                  </li>
+
+                  <li class="has_sub">
+                          <a href="javascript:void(0);" class="waves-effect waves-primary">
+                              <i class="md md-palette"></i> <span> Submissions </span>
+                           <span class="menu-arrow"></span></a>
+                          <ul class="list-unstyled">
+                            <li><a href="{% url 'default:author_submissions' %}">my submission</a></li>
+                          </ul>
+                    </li>
+
+                    <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect waves-primary">
+                                <i class="md md-palette"></i> <span> Reviews </span>
+                             <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{% url 'default:author_reviews' %}">Edit</a></li>
+                                <li><a href="{% url 'default:author_reviews' %}">Upload</a></li>
+                            </ul>
+                      </li>
+
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="user-detail">
+        <div class="dropup">
+            <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
+              {% with photo_url=user.photoURL %}
+              <img src="{{ photo_url }}" class="img-circle" alt="user-img">
+              {% endwith %}
+                <span class="user-info-span">
+                    <h5 class="m-t-0 m-b-0">{{ user.username }}</h5>
+                    <p class="text-muted m-b-0">
+                        <small><i class="fa fa-circle text-success"></i> <span>Online</span></small>
+                    </p>
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'default:profile' %}"><i class="md md-face-unlock"></i> Profile</a></li>
+                <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
+                <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
+                <li><a href="{% url 'logout' %}"><i class="md md-settings-power"></i> Logout</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<!-- Left Sidebar End -->

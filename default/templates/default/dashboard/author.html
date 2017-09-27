@@ -1,0 +1,314 @@
+{% load static %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box">
+                        <ol class="breadcrumb pull-right">
+                            <li><a href="#">{{ user.type }}</a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                        <h4 class="page-title">Welcome ! {{ user.first_name }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="widget-simple-chart text-right card-box">
+
+
+                        <div style="float: left;margin-top: -5px;margin: 0px auto;position: relative;text-align: right">
+                            <img src="{% static 'images/icons/session.png' %}" width="100" alt=""></div>
+
+                        <h3 class="text-success counter">{{ con.conference_count }}</h3>
+                        <p class="text-muted text-nowrap">Conferences</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="widget-simple-chart text-right card-box">
+                        <!-- <div class="circliful-chart" data-dimension="90" data-text="75%" data-width="5" data-fontsize="14" data-percent="75" data-fgcolor="#3bafda" data-bgcolor="#ebeff2"></div>
+                        -->
+                        <div style="float: left;margin-top: -5px;margin: 0px auto;position: relative;text-align: right">
+                            <img src="{% static 'images/icons/submission.png' %}" width="100" alt=""></div>
+
+                        <h3 class="text-primary counter">{{ con.submission_count }}</h3>
+                        <p class="text-muted text-nowrap">Submissions</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="widget-simple-chart text-right card-box">
+                        <!-- <div class="circliful-chart" data-dimension="90" data-text="58%" data-width="5" data-fontsize="14" data-percent="58" data-fgcolor="#f76397" data-bgcolor="#ebeff2"></div>
+                        -->
+                        <div style="float: left;margin-top: -5px;margin: 0px auto;position: relative;text-align: right">
+                            <img src="{% static 'images/icons/reviews.png' %}" width="100" alt=""></div>
+                        <h3 class="text-pink"><span class="counter">{{ con.review_count }}</span></h3>
+                        <p class="text-muted text-nowrap">Reviews</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end row -->
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card-box">
+                        <h4 class="text-dark  header-title m-t-0">Latest Conferences</h4>
+                        <p class="text-muted m-b-25 font-13">
+                            From here you can view your latest Conferences.
+                        </p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Acronym</th>
+                                    <th>Name</th>
+                                    <th>URL</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  {% for conference in con.conferences %}
+                                    <tr>
+                                        <td>{{conference.id}}</td>
+                                        <td>
+                                          <a href="{% url 'default:conference_info' conf_id=conference.id %}">
+                                          {{conference.acronym}}
+                                        </a>
+                                        </td>
+                                        <td>{{conference.name}}</td>
+                                        <td><span class="label label-info">{{conference.webpage}}</span></td>
+                                    </tr>
+                                    {% endfor %}
+                                    <!--
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Minton Admin v1</td>
+                                            <td>01/01/2016</td>
+                                            <td>26/04/2016</td>
+                                            <td><span class="label label-info">Released</span></td>
+                                            <td>Coderthemes</td>
+                                        </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Minton Frontend v1</td>
+                                        <td>01/01/2016</td>
+                                        <td>26/04/2016</td>
+                                        <td><span class="label label-success">Released</span></td>
+                                        <td>Minton admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Minton Admin v1.1</td>
+                                        <td>01/05/2016</td>
+                                        <td>10/05/2016</td>
+                                        <td><span class="label label-pink">Pending</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Minton Frontend v1.1</td>
+                                        <td>01/01/2016</td>
+                                        <td>31/05/2016</td>
+                                        <td><span class="label label-purple">Work in Progress</span>
+                                        </td>
+                                        <td>Minton admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Minton Admin v1.3</td>
+                                        <td>01/01/2016</td>
+                                        <td>31/05/2016</td>
+                                        <td><span class="label label-warning">Coming soon</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Minton Admin v1.3</td>
+                                        <td>01/01/2016</td>
+                                        <td>31/05/2016</td>
+                                        <td><span class="label label-primary">Coming soon</span></td>
+                                        <td>Minton admin</td>
+                                    </tr>
+                                  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card-box">
+                        <h4 class="text-dark  header-title m-t-0">Latest Submission Updates</h4>
+                        <p class="text-muted m-b-25 font-13">
+                            From here you can view your latest submissions.
+                        </p>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Conf. Name</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  {% for submission in con.submissions %}
+                                    <tr>
+                                        <td>{{submission.id}}</td>
+                                        <td>
+                                      <a href="{% url 'default:conference_info' conf_id=submission.conference.id %}">
+                                          {{submission.conference.acronym}}
+                                      </a>
+                                        </td>
+                                        <td>
+                                      <a href="{% url 'default:author_submissions_info' submission_id=submission.id %}">
+                                          {{submission.title}}
+                                      </a>
+                                        </td>
+                                        <td><span class="label label-info">{{submission.status}}</span></td>
+                                    </tr>
+                                    {% endfor %}
+                                    <!--
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Minton Admin v1</td>
+                                            <td>01/01/2016</td>
+                                            <td>26/04/2016</td>
+                                            <td><span class="label label-info">Released</span></td>
+                                            <td>Coderthemes</td>
+                                        </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Minton Frontend v1</td>
+                                        <td>01/01/2016</td>
+                                        <td>26/04/2016</td>
+                                        <td><span class="label label-success">Released</span></td>
+                                        <td>Minton admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Minton Admin v1.1</td>
+                                        <td>01/05/2016</td>
+                                        <td>10/05/2016</td>
+                                        <td><span class="label label-pink">Pending</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Minton Frontend v1.1</td>
+                                        <td>01/01/2016</td>
+                                        <td>31/05/2016</td>
+                                        <td><span class="label label-purple">Work in Progress</span>
+                                        </td>
+                                        <td>Minton admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Minton Admin v1.3</td>
+                                        <td>01/01/2016</td>
+                                        <td>31/05/2016</td>
+                                        <td><span class="label label-warning">Coming soon</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Minton Admin v1.3</td>
+                                        <td>01/01/2016</td>
+                                        <td>31/05/2016</td>
+                                        <td><span class="label label-primary">Coming soon</span></td>
+                                        <td>Minton admin</td>
+                                    </tr>
+                                  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -8 -->
+
+                <div class="col-lg-4">
+                    <div class="card-box widget-user">
+                        <div>
+                            <!--
+                            <img src="{% static 'assets/images/users/avatar-1.jpg' %}" class="img-responsive img-circle" alt="user">
+                          -->
+
+                            <div class="">
+                              <div id="searchbox" style="" role="search">
+                              <h4>Conference Quick Search</h4>
+                              <p class="text-muted m-b-5 font-13">
+                                Search for a conference and register.
+                              </p>
+
+                                <form class="search" action="{% url 'default:conference_search' %}" method="get">
+                                  <div><input type="text" name="q"></div>
+                                  <div><input type="submit" value="Go"></div>
+                                  <input type="hidden" name="check_keywords" value="yes">
+                                  <input type="hidden" name="area" value="default">
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                            </div>
+
+                            <div class="card-box widget-user">
+                                <div>
+                                  <div class="">
+                                <h4 class="m-t-0 m-b-5">Conferences</h4>
+                                <p class="text-muted m-b-5 font-13">View all the conferences you have registered.</p>
+                                <small class="text-warning"><b><a href="{% url 'default:author_conferences' %}">View all</a></b></small>
+                                  </div>
+                                </div>
+                            </div>
+
+
+                    <div class="card-box widget-user">
+                        <div>
+                          <div class="">
+                              <h4 class="m-t-0 m-b-5">Submissions</h4>
+                              <p class="text-muted m-b-5 font-13">View all your submissions you have uploaded</p>
+                              <small class="text-warning"><b><a href="{% url 'default:author_submissions' %}">View all</a></b></small>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="card-box widget-user">
+                        <div>
+                          <div class="">
+                              <h4 class="m-t-0 m-b-5">Reviews</h4>
+                              <p class="text-muted m-b-5 font-13">View all the reviews submitted</p>
+                              <small class="text-warning"><b>View all</b></small>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end row -->
+
+
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end content -->
